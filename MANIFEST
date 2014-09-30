@@ -1,0 +1,9 @@
+setup.py
+admin_logs\__init__.py
+admin_logs\admin.py
+admin_logs\log.py
+admin_logs\middleware.py
+admin_logs\models.py
+admin_logs\tasks.py
+admin_logs\tests.py
+admin_logs\views.py

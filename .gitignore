@@ -1,2 +1,5 @@
 *.pyc
-.idea
+/.idea
+/admin_logs.egg-info
+/build
+/dist
