@@ -1,0 +1,59 @@
+.admin-logs-header {
+    padding-left: 15px;
+    background-repeat: no-repeat;
+}
+
+.admin-logs-collapsed .admin-logs-header {
+    background-image: url('../../images/admin_logs/plus.png');
+    cursor: pointer;
+}
+
+.admin-logs-expanded .admin-logs-header {
+    background-image: url('../../images/admin_logs/minus.png');
+    cursor: pointer;
+}
+
+.admin-logs-level {
+    margin: 0 0.3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 1.2em;
+    height: 1.2em;
+    display: block;
+    float: left;
+    border-radius: 2px;
+    line-height: 1.2em;
+    text-align: center;
+}
+
+.admin-logs-full {
+    display: none;
+}
+
+.admin-logs-expanded .admin-logs-full {
+    display: block;
+}
+
+.admin-logs-expanded .admin-logs-date {
+    display: block;
+}
+
+.admin-logs-level-w {
+    background-color: #fd0;
+}
+
+.admin-logs-level-e {
+    background-color: #f90;
+}
+
+.admin-logs-level-i {
+    background-color: #3c0;
+}
+
+.admin-logs-level-d {
+    background-color: #09f;
+}
+
+.admin-logs-level-c {
+    background-color: #f22;
+}
