@@ -1,8 +1,8 @@
+import logging
 from django import http
 
 
 def home(request):
-    import logging
     logging.warning('warning')
 
     logging.error('error')
