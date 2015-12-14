@@ -2,10 +2,10 @@ import time
 import logging
 import traceback
 import threading
+import importlib
 
 from django.utils import timezone
 from django.conf import settings, ImproperlyConfigured
-from django.utils.importlib import import_module
 
 
 _thread_locals = threading.local()
@@ -32,7 +32,7 @@ def load_backend(path):
     i = path.rfind('.')
     module, attr = path[:i], path[i + 1:]
     try:
-        mod = import_module(module)
+        mod = importlib.import_module(module)
     except ImportError as e:
         raise ImproperlyConfigured('Error importing '
                                    'admin log backend %s: "%s"' % (path, e))
