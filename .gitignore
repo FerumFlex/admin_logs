@@ -3,3 +3,4 @@
 /admin_logs.egg-info
 /build
 /dist
+db.sqlite3
