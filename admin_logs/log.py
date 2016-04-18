@@ -69,11 +69,11 @@ class RequestRecord(object):
         self.start_date = timezone.now()
         self.duration = 0
         self.start_request = time.time()
-        self.url = request.path
+        self.url = (request.path or '')[:1024]
         self.status_code = None
         self.ip = get_client_ip(request)
         self.content_length = 0
-        self.user_agent = request.META.get('HTTP_USER_AGENT')
+        self.user_agent = request.META.get('HTTP_USER_AGENT', '')[:1024]
         self.entries = []
         self.max_level = 0
 

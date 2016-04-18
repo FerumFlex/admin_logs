@@ -37,13 +37,13 @@ class Request(models.Model):
                                          default=logging.NOTSET,
                                          choices=LEVEL_CHOICES)
 
-    url = models.CharField(max_length=255, verbose_name="Request url",
+    url = models.CharField(max_length=1024, verbose_name="Request url",
                            editable=False, db_index=True)
     status_code = models.SmallIntegerField(verbose_name="Status code",
                                            editable=False, db_index=True)
     content_length = models.IntegerField(verbose_name="Content length",
                                          editable=False, null=True)
-    user_agent = models.CharField(max_length=255, editable=False, null=True)
+    user_agent = models.CharField(max_length=1024, editable=False, null=True)
     ip = models.GenericIPAddressField(editable=False, db_index=True)
 
     entries = PickledObjectField(default=[], editable=False)
