@@ -5,6 +5,9 @@ from admin_logs.models import Request
 
 
 class RequestAdmin(admin.ModelAdmin):
+    class Meta:
+        app_label = 'Admin logs'
+
     class Media(object):
         css = {
             'all': ('css/admin_logs/styles.css',)

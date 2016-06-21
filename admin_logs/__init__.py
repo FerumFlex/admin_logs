@@ -3,10 +3,12 @@ import logging
 from admin_logs.log import AdminLogHandler
 
 
-__version__ = (0, 1, '3')
+__version__ = (0, 1, '5')
 
 
-def setup_level(level):
-    handler = AdminLogHandler()
-    handler.setLevel(level)
-    logging.root.addHandler(handler)
+default_app_config = 'admin_logs.apps.AdminLogsConfig'
+
+
+handler = AdminLogHandler()
+handler.setLevel(logging.DEBUG)
+logging.root.addHandler(handler)

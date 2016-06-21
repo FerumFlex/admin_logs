@@ -1,7 +1,7 @@
 # Django settings for admin_logs_app project.
+import os
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -85,12 +85,23 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'mk(w04-dh8-#+amu@k^%kva_rl@)4m#_*0bo*t!99_v@zh0x6z'
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -106,9 +117,6 @@ ROOT_URLCONF = 'admin_logs_app.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'admin_logs_app.wsgi.application'
-
-import os
-TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -163,6 +171,3 @@ INSTALLED_APPS += ('admin_logs', )
 MIDDLEWARE_CLASSES = ('admin_logs.middleware.LogRequestMiddleware', ) + MIDDLEWARE_CLASSES
 
 ADMIN_LOGS_BACKEND = 'admin_logs.backends.database.DatabaseBackend'
-
-from admin_logs import setup_level
-setup_level('INFO')

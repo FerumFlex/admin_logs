@@ -59,3 +59,10 @@ class Request(models.Model):
     def formatted_start_date(self):
         return self.start_date.strftime('%Y-%m-%d %H:%M:%S') + '.' + \
             self.start_date.strftime('%f')[:3]
+
+    @property
+    def can_be_expanded(self):
+        for entry in self.entries:
+            if entry.stack_trace:
+                return True
+        return False

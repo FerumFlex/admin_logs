@@ -25,7 +25,7 @@ def get_client_ip(request):
         ip_address = x_forwarded_for.split(',')[0]
     else:
         ip_address = request.META.get('REMOTE_ADDR')
-    return ip_address
+    return ip_address or ''
 
 
 def load_backend(path):
@@ -71,7 +71,7 @@ class RequestRecord(object):
         self.start_request = time.time()
         self.url = (request.path or '')[:1024]
         self.status_code = None
-        self.ip = get_client_ip(request)
+        self.ip = get_client_ip(request)[:39]
         self.content_length = 0
         self.user_agent = request.META.get('HTTP_USER_AGENT', '')[:1024]
         self.entries = []

@@ -1,15 +1,20 @@
 .admin-logs-header {
-    padding-left: 15px;
     background-repeat: no-repeat;
 }
 
 .admin-logs-collapsed .admin-logs-header {
     background-image: url('../../images/admin_logs/plus.png');
     cursor: pointer;
+    padding-left: 15px;
 }
 
 .admin-logs-expanded .admin-logs-header {
     background-image: url('../../images/admin_logs/minus.png');
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+.admin-logs-collapsed .admin-logs-short, .admin-logs-expanded .admin-logs-short {
     cursor: pointer;
 }
 
@@ -30,12 +35,14 @@
     display: none;
 }
 
-.admin-logs-expanded .admin-logs-full {
-    display: block;
+.admin-logs-entry {
+    margin: 5px 0;
 }
 
-.admin-logs-expanded .admin-logs-date {
+.admin-logs-expanded .admin-logs-full {
     display: block;
+    margin-top: 5px;
+    margin-left: 20px;
 }
 
 .admin-logs-level-w {

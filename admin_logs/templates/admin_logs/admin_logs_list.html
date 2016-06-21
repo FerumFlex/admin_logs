@@ -1,4 +1,4 @@
-<div class="admin-logs-entry {% if admin_log.entries %}admin-logs-collapsed{% endif %}">
+<div class="admin-logs-entry {% if admin_log.can_be_expanded %}admin-logs-collapsed{% endif %}">
     <div class="admin-logs-header">
         {{ admin_log.formatted_start_date }}
         <strong>{{ admin_log.url }}</strong>
@@ -8,14 +8,17 @@
         {{ admin_log.user_agent }}
     </div>
     {% for entry in admin_log.entries %}
-        <p class="admin-logs-short">
-            <span class="admin-logs-level admin-logs-level-{{ entry.formatted_level }}">{{ entry.formatted_level }}</span>
-            <span class="admin-logs-date">{{ entry.formatted_date }}:</span> {{ entry.message }}
-        </p>
-        {% if entry.stack_trace %}
-            <p class="admin-logs-full">
-                {{ entry.stack_trace }}
-            </p>
-        {% endif %}
+        <div class="admin-logs-entry">
+            <div class="admin-logs-short">
+                <span class="admin-logs-level admin-logs-level-{{ entry.formatted_level }}">{{ entry.formatted_level }}</span>
+                <span class="admin-logs-date">{{ entry.formatted_date }}:</span>
+                <span class="admin-logs-short-message">{{ entry.message }}</span>
+            </div>
+            {% if entry.stack_trace %}
+                <div class="admin-logs-full">
+                    {{ entry.stack_trace|linebreaks }}
+                </div>
+            {% endif %}
+        </div>
     {% endfor %}
 </div>

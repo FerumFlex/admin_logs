@@ -21,16 +21,4 @@ Include this lines to your settings.py:
   from admin_logs import setup_level
   setup_level('INFO')  # set minumum log level that will be written to logs
 
-
-Working
-=======
-
-Anywhere in the code you can run:
-
-::
-
-  import logging
-  logging.warning('Test')
-
-
 And this warning will be written to logs and you can check it later.
