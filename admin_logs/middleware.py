@@ -1,7 +1,12 @@
 from admin_logs.log import get_record, set_record, RequestRecord
 
+try:
+    from django.utils.deprecation import MiddlewareMixin as parent
+except ImportError:
+    parent = object
 
-class LogRequestMiddleware(object):
+
+class LogRequestMiddleware(parent):
     def process_request(self, request):
         record = RequestRecord(request)
         set_record(record)

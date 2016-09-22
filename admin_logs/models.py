@@ -13,7 +13,7 @@ class Request(models.Model):
     CT_TABLET = 3
     CT_BOT = 4
 
-    LEVEL_CHOICES = {
+    LEVEL_CHOICES = (
         (logging.CRITICAL, 'CRITICAL'),
         (logging.ERROR, 'ERROR'),
         (logging.WARNING, 'WARNING'),
@@ -21,7 +21,7 @@ class Request(models.Model):
         (logging.INFO, 'INFO'),
         (logging.DEBUG, 'DEBUG'),
         (logging.NOTSET, 'NOTSET'),
-    }
+    )
 
     hash = models.CharField(max_length=100, unique=True, editable=False,
                             verbose_name="Hash",
