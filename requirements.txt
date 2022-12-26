@@ -1,4 +1,4 @@
-Django==1.11.28
+Django==2.2.28
 django-picklefield
 celery
 wheel==0.38.1  # for build into wheel
